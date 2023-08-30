@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "lemmy-image-purge"
+version = "0.0.0"
+description = "Purge Images from your Lemmy Instance"
+authors = ["Chris Pressland <mail@cpressland.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+lemmy-image-purge = "lemmy_image_purge.cli:cli"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+click = "^8.1.7"
+psycopg2-binary = "^2.9.7"
+pydantic-settings = "^2.0.3"
+sqlalchemy = "^2.0.20"
+pendulum = "^2.1.2"
+loguru = "^0.7.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.286"
+refurb = "^1.20.0"
+
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["D203", "D213", "D407", "ANN101", "PLR0913", "COM812", "FA102"]
+line-length = 250
+
+
+[tool.poetry-dynamic-versioning]
+enable = true
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
